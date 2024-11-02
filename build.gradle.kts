@@ -30,9 +30,15 @@ application {
 dependencies {
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-web-client")
-  implementation("io.vertx:vertx-auth-jwt")
+  implementation("io.vertx:vertx-auth-jwt:4.4.2")
+  implementation ("io.vertx:vertx-auth-common:4.4.0")
   implementation("io.vertx:vertx-web")
   implementation("io.vertx:vertx-auth-jdbc")
+  implementation ("io.vertx:vertx-service-proxy:4.4.2")
+  implementation ("io.vertx:vertx-circuit-breaker:4.4.2") // For fault tolerance/load balancing
+  implementation ("com.fasterxml.jackson.core:jackson-databind:2.15.2") // JSON handling
+  implementation("org.slf4j:slf4j-api:2.0.7") // SLF4J API
+  implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.17.1")
   testImplementation("io.vertx:vertx-junit5")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
 }
