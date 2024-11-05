@@ -31,7 +31,7 @@ public class JWT_Auth extends AbstractVerticle {
               // Authentication successful
               String token = jwtAuth.generateToken(
                 account,
-                new JWTOptions().setExpiresInMinutes(10));
+                new JWTOptions().setExpiresInMinutes(20));
 
               ctx.response()
                 .putHeader("Content-Type", "application/json")
@@ -71,13 +71,13 @@ public class JWT_Auth extends AbstractVerticle {
               String token = jwtAuth.generateToken(
                 account,
                 new JWTOptions().setExpiresInMinutes(10));
+              log.info("Token generated....");
 
               ctx.response()
                 .putHeader("Content-Type", "application/json")
                 .end(new JsonObject().put("token", token)
                   .encode());
 
-              log.info("Token generated....");
             }else{
               // Authentication failed
               ctx.response().setStatusCode(401).end("Unauthorized");
